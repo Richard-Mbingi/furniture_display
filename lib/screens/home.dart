@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:funiture_list/data/furniture_list.dart';
+import 'package:funiture_list/widgets/button_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatelessWidget {
@@ -43,16 +44,7 @@ class Home extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 35.0),
-                  FloatingActionButton(
-                    elevation: 0.0,
-                    child: RotatedBox(
-                        quarterTurns: 2,
-                        child: Icon(
-                          Icons.keyboard_backspace,
-                          color: Colors.black,
-                        )),
-                    onPressed: () {},
-                  ),
+                  CustomButton(),
                 ],
               ),
             );
