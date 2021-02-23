@@ -32,12 +32,15 @@ class _CustomButtonState extends State<CustomButton>
             angle: _controller.status == AnimationStatus.forward
                 ? (math.pi * 2) * _controller.value
                 : -(math.pi * 2) * _controller.value,
-            child: Container(
-              height: 55,
-              width: 55,
-              child: CustomPaint(
-                painter: ButtonCanvas(
-                  radius: _animation.value,
+            child: InkWell(
+              onTap: (){},
+              child: Container(
+                height: 55,
+                width: 55,
+                child: CustomPaint(
+                  painter: ButtonCanvas(
+                    radius: _animation.value,
+                  ),
                 ),
               ),
             ),
