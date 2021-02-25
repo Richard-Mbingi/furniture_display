@@ -11,16 +11,17 @@ class CustomButton extends StatefulWidget {
 
 class _CustomButtonState extends State<CustomButton>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  AnimationController _animationController;
   Animation _animation;
   @override
   void initState() {
     super.initState();
-    _controller =
+    _animationController =
         AnimationController(vsync: this, duration: Duration(seconds: 1));
-    _animation = Tween(begin: 1.0, end: 1.2)
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeIn));
-    _controller.repeat(reverse: true);
+    _animation = Tween(begin: 1.0, end: 1.2).animate(
+        CurvedAnimation(parent: _animationController, curve: Curves.easeIn));
+    // _animationController.repeat(reverse: true);
+    _animationController.addListener(() {});
   }
 
   @override
@@ -28,21 +29,18 @@ class _CustomButtonState extends State<CustomButton>
     return Stack(
       children: [
         AnimatedBuilder(
-          animation: _controller,
+          animation: _animationController,
           builder: (context, widget) {
             return Transform.rotate(
-              angle: _controller.status == AnimationStatus.forward
-                  ? (math.pi * 2) * _controller.value
-                  : -(math.pi * 2) * _controller.value,
-              child: InkWell(
-                onTap: () {},
-                child: Container(
-                  height: 55,
-                  width: 55,
-                  child: CustomPaint(
-                    painter: ButtonCanvas(
-                      radius: _animation.value,
-                    ),
+              angle: _animationController.status == AnimationStatus.forward
+                  ? (math.pi * 2) * _animationController.value
+                  : -(math.pi * 2) * _animationController.value,
+              child: Container(
+                height: 55,
+                width: 55,
+                child: CustomPaint(
+                  painter: ButtonCanvas(
+                    radius: _animation.value,
                   ),
                 ),
               ),

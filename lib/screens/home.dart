@@ -14,7 +14,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<PaletteColor> colors;
-  final  int _currentIndex = 0;
+  final int _currentIndex = 0;
+  PageController _pageController = PageController(initialPage: 0);
 
   @override
   void initState() {
@@ -23,7 +24,7 @@ class _HomeState extends State<Home> {
     _updatePalettes();
   }
 
-//TODO: Images not being referenced 
+//TODO: Images not being referenced
   _updatePalettes() async {
     for (Furniture furnitureImg in furnitureList) {
       final PaletteGenerator generator =
@@ -45,13 +46,16 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: Container(
         padding: EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 20.0),
-        color: colors.isNotEmpty ? colors[_currentIndex].color : Colors.yellow[400],
+        color: colors.isNotEmpty
+            ? colors[_currentIndex].color
+            : Colors.yellow[400],
         child: Column(
           children: [
             Container(
               width: double.infinity,
               height: 700,
               child: PageView(
+                controller: _pageController,
                 children: furnitureList
                     .map((furniture) => Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,7 +89,15 @@ class _HomeState extends State<Home> {
                     .toList(),
               ),
             ),
-            CustomButton(),
+            InkWell(
+              onTap: () {
+                _pageController.nextPage(
+                  duration: Duration(milliseconds: 200),
+                  curve: Curves.easeIn,
+                );
+              },
+              child: CustomButton(),
+            ),
           ],
         ),
       ),
