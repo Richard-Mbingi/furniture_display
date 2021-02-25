@@ -25,27 +25,40 @@ class _CustomButtonState extends State<CustomButton>
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-        animation: _controller,
-        builder: (context, widget) {
-          return Transform.rotate(
-            angle: _controller.status == AnimationStatus.forward
-                ? (math.pi * 2) * _controller.value
-                : -(math.pi * 2) * _controller.value,
-            child: InkWell(
-              onTap: (){},
-              child: Container(
-                height: 55,
-                width: 55,
-                child: CustomPaint(
-                  painter: ButtonCanvas(
-                    radius: _animation.value,
+    return Stack(
+      children: [
+        AnimatedBuilder(
+          animation: _controller,
+          builder: (context, widget) {
+            return Transform.rotate(
+              angle: _controller.status == AnimationStatus.forward
+                  ? (math.pi * 2) * _controller.value
+                  : -(math.pi * 2) * _controller.value,
+              child: InkWell(
+                onTap: () {},
+                child: Container(
+                  height: 55,
+                  width: 55,
+                  child: CustomPaint(
+                    painter: ButtonCanvas(
+                      radius: _animation.value,
+                    ),
                   ),
                 ),
               ),
-            ),
-          );
-        });
+            );
+          },
+        ),
+        Positioned(
+          top: 15,
+          left: 13,
+          child: Image.asset(
+            "assets/furniture/right-arrow.png",
+            scale: 2.5,
+          ),
+        ),
+      ],
+    );
   }
 }
 
