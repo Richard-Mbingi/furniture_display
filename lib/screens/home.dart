@@ -63,8 +63,7 @@ class _HomeState extends State<Home> {
                             Image.asset(furniture.furnitureImage),
                             SizedBox(height: 60),
                             Text(
-                              //TODO: Generate List Numbers
-                              ".01",
+                              furniture.furnitureNumber,
                               style: GoogleFonts.questrial(
                                   fontSize: 40.0, fontWeight: FontWeight.w800),
                             ),
@@ -89,15 +88,7 @@ class _HomeState extends State<Home> {
                     .toList(),
               ),
             ),
-            InkWell(
-              onTap: () {
-                _pageController.nextPage(
-                  duration: Duration(milliseconds: 200),
-                  curve: Curves.easeIn,
-                );
-              },
-              child: CustomButton(),
-            ),
+            CustomButton(),
           ],
         ),
       ),
