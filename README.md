@@ -1,16 +1,16 @@
 # funiture_list
 
-A new Flutter project.
+UI implementation challenge: List of exotic 80s inpsired furniture displayed in a modern UI.
 
-## Getting Started
+## Implementation
 
-This project is a starting point for a Flutter application.
+The project was focused on three main areas: Complex UI display, animation & color pallete generation
 
-A few resources to get you started if this is your first Flutter project:
+References for this project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- https://github.com/lohanidamodar/flutter_palette_generator)
+- https://pub.dev/packages/palette_generator
+- https://github.com/hasnentai/loaders_flutter
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Credit
+UI design credit: https://dribbble.com/shots/15067589-Furniture-Onboarding-UI-Design
