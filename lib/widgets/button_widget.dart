@@ -20,6 +20,7 @@ class _CustomButtonState extends State<CustomButton>
         AnimationController(vsync: this, duration: Duration(seconds: 1));
     _animation = Tween(begin: 1.1, end: 1.3).animate(
         CurvedAnimation(parent: _animationController, curve: Curves.easeIn));
+    _animationController.repeat(reverse: true);
   }
 
   @override
